@@ -28,6 +28,7 @@ import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { BackToTop } from './components/BackToTop';
 import { SearchModal } from './components/SearchModal';
+import { AdminLoginModal } from './components/AdminLoginModal';
 
 import { HomeView } from './views/HomeView';
 import { ProfileView } from './views/ProfileView';
@@ -81,6 +82,7 @@ export default function App() {
   // Active Navigation Tab
   const [currentTab, setCurrentTab] = useState<string>('home');
   const [isAdminMode, setIsAdminMode] = useState<boolean>(false);
+  const [showAdminLogin, setShowAdminLogin] = useState<boolean>(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     return getInitial('kmp_darkmode', false);
   });
@@ -169,7 +171,13 @@ export default function App() {
             setIsAdminMode(false);
           }}
           isAdmin={isAdminMode}
-          onToggleAdmin={() => setIsAdminMode(!isAdminMode)}
+          onToggleAdmin={() => {
+            if (isAdminMode) {
+              setIsAdminMode(false);
+            } else {
+              setShowAdminLogin(true);
+            }
+          }}
           isDarkMode={isDarkMode}
           onToggleDarkMode={() => setIsDarkMode(!isDarkMode)}
           onOpenSearch={() => setIsSearchOpen(true)}
@@ -252,6 +260,16 @@ export default function App() {
             </>
           )}
         </main>
+
+        {showAdminLogin && (
+          <AdminLoginModal
+            onClose={() => setShowAdminLogin(false)}
+            onLoginSuccess={() => {
+              setShowAdminLogin(false);
+              setIsAdminMode(true);
+            }}
+          />
+        )}
 
         {/* Footer */}
         <Footer onTabChange={setCurrentTab} />

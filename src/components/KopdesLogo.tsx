@@ -14,30 +14,22 @@ export const KopdesLogo: React.FC<KopdesLogoProps> = ({
   const heights = {
     sm: 'h-8',
     md: 'h-11',
-    lg: 'h-16',
-    xl: 'h-24'
+    lg: 'h-14',
+    xl: 'h-20'
   };
 
   return (
     <div className={`inline-flex items-center gap-3 font-sans select-none ${heights[size]} ${className}`}>
-      {/* Red Circular Badge / Emblem with Indonesian Flag */}
-      <div className="relative h-full aspect-[1/1] shrink-0 flex items-center justify-center rounded-xl bg-[#CE2029] text-white p-2 shadow-xs border border-red-700/20">
-        <svg
-          viewBox="0 0 100 100"
-          className="w-full h-full"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Flag Pole */}
-          <rect x="28" y="15" width="4" height="70" fill="#FFFFFF" opacity="0.9" rx="2" />
-          {/* Flag Red */}
-          <path d="M 32 18 C 50 14 65 24 82 18 L 82 38 C 65 44 50 34 32 38 Z" fill="#FFFFFF" />
-          {/* Flag White with Red Accent */}
-          <path d="M 32 38 C 50 34 65 44 82 38 L 82 58 C 65 64 50 54 32 58 Z" fill="#F8FAFC" opacity="0.95" />
-          {/* Rice/Grain sustainability arc in green at bottom */}
-          <circle cx="50" cy="50" r="42" stroke="#2D5A27" strokeWidth="6" strokeDasharray="180" opacity="0.8" />
-        </svg>
-      </div>
+      {/* Uploaded Logo Image */}
+      <img 
+        src="/logo.png" 
+        alt="Logo Koperasi Merah Putih" 
+        className="h-full w-auto object-contain"
+        onError={(e) => {
+          // Fallback if logo.png is not yet uploaded
+          (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=Kopdes+Merah+Putih&background=CE2029&color=fff&rounded=true&bold=true';
+        }}
+      />
 
       {/* Editorial Typography */}
       <div className="flex flex-col justify-center leading-none">
@@ -61,4 +53,5 @@ export const KopdesLogo: React.FC<KopdesLogoProps> = ({
     </div>
   );
 };
+
 
