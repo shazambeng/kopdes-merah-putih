@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, .font-serif-editorial {
+    font-family: 'Newsreader', Georgia, serif;
+  }
+}
+
+/* Custom Editorial Aesthetic Color Tokens */
+:root {
+  --color-kmp-red: #CE2029;
+  --color-kmp-green: #2D5A27;
+  --color-kmp-bg: #F7F8F7;
+  --color-kmp-paper: #FDFDFD;
+}

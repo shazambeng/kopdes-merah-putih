@@ -1,0 +1,6 @@
+{
+  "name": "Koperasi Merah Putih Soreang",
+  "description": "Microsite Resmi Koperasi Merah Putih Kecamatan Soreang, Kabupaten Bandung, Jawa Barat. Portal informasi, katalog produk UMKM, potensi desa, artikel, layanan pendaftaran anggota, dan dashboard admin.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
